@@ -1,0 +1,67 @@
+Skenario Positive Favorite Restoran:
+1. Restoran belum disukai.
+2. Button untuk menyukai film ditampilkan
+3. Button untuk menyukai restoran ditekan oleh pengguna.
+4. Restoran ditambahkan ke daftar favorite :
+   Negative: 
+  - Ternyata restorang sudah disukai:
+    = Tidak perlu menyimpan kembali.
+  - Data restoran tidak memiliki ID:
+    = Sistem tidak memproses penyimpanan.
+    = Sistem tidak gagal.
+
+Skenario Positive Unfavorite Restoran:
+1. Restoran sudah disukai.
+2. Button untuk batal menyukai restoran ditampilkan.
+3. Button/widget pembatalan ditekan oleh pengguna.
+4. Restoran dihapus dari daftar favorite:
+   Negative:
+   - Ternyata restoran tidak ada di daftar restoran favorite.
+
+Skenario Positive Contract Restoran IndexedDB:
+1. Dapat mengembalikan restoran yang tersimpan berdasarkan key tertentu (getRestaurant).
+2. Dapat mengembalikan semua restoran kesukaan yang sudah tersimpan (getAllRestaurant).
+3. Dapat menambahkan restoran baru ke daftar yang disukai (putRestaurant) :
+   Negative:
+   - Bila data restoran tidak mengandung properti key yang dibutuhkan, maka bangkitkan Error. Jangan sampai aplikasi berhenti berjalan.
+4. Dapat menghapus restoran dari daftar yang disukai (deleteRestaurant) :
+   Negative:
+   - Bila restoran tidak ada, maka jangan terjadi error.
+
+Skenario Positive Model-View-Presenter Architecture Menampilkan Favorite:
+1. Buka halaman restoran favorite.
+2. Tampilkan semua restoran yang disukai.
+3. Presenter meminta semua daftar restoran yang disukai kepada Model.
+4. Model mengembalikan daftar restoran dari Idb.
+5. Presenter meminta View menampilkan daftar restoran favorite.
+6. Bila tidak ada restoran yang disukai, berikan informasi mengenai kondisi tersebut.
+7. Presenter meminta semua daftar restoran yang disukai kepada Model.
+8. Model mengembalikan daftar kosong.
+9. Presenter meminta View manampilkan informasi bahwa belum ada film yang disukai.
+
+Skenario end-to-end menyukai dan batal menyukai restoran web codecept:
+1. Buka halaman utama
+2. Pilih salah satu restoran, misalnya restoran pertama
+3. Klik restoran tersebut
+4. Aplikasi membawa kita ke halaman detail
+5. Simpan judul restoran dalam sebuah list
+6. Kita menekan tombol menyukai restoran
+7. Kembali ke halaman utama
+8. Buka detail restoran kedua dan tekan tombol menyukai, simpan judul di daftar list
+9. Kita buka halaman daftar restoran yang disukai
+10.Kita melihat judul restoran yang disukai dan menyamakan dengan daftar list sebelumnya
+11.Buka detail restoran yang disukai
+12.Klik tombol batal menyukai
+13.Kembali ke halaman favorite1
+14. Web menampilkan tidak ada restoran yang disukai
+
+Skenario end-to-end posting review restoran web codecept:
+1. Buka halaman utama
+2. Pilih salah satu restoran, misalnya restoran pertama
+3. Klik restoran tersebut
+4. Temukan form untuk mengisi review baru
+5. Isi nama dalam field nama 
+6. Isi review dalam field review
+7. Klik tombol submit review
+8. Cek text yang ditampilkan pada elemen posted review
+9. Samakan dengan nama dan review yang diisi

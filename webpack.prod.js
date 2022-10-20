@@ -5,7 +5,6 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const {merge} = require('webpack-merge');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(common, {
   mode: 'production',
@@ -28,6 +27,17 @@ module.exports = merge(common, {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/public/'),
+          to: path.resolve(__dirname, 'dist/'),
+          globOptions: {
+            ignore: ['**/images/heros/**'],
+          },
+        },
+      ],
+    }),
     new WorkboxWebpackPlugin.InjectManifest({
       swSrc: path.resolve(__dirname, 'src/scripts/sw.js'),
       swDest: './sw.bundle.js',
@@ -40,6 +50,5 @@ module.exports = merge(common, {
         }),
       ],
     }),
-    new BundleAnalyzerPlugin(),
   ],
 });

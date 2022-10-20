@@ -2,6 +2,7 @@ const {merge} = require('webpack-merge');
 const path = require('path');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const common = require('./webpack.common');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(common, {
   mode: 'development',

@@ -4,10 +4,12 @@ import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 const base = (restaurants) => {
   restaurants.forEach((restaurant) => {
+    const container = document.querySelector('.posts');
     const restoContainer = document.createElement('article');
     restoContainer.classList.add('post-item');
     restoContainer.setAttribute('id', restaurant.id );
     restoContainer.setAttribute('tabindex', 0);
+    container.append(restoContainer);
 
     const restoThumbnail = document.createElement('img');
     restoThumbnail.setAttribute('data-src', restaurant.pictureId ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale');
@@ -35,9 +37,6 @@ const base = (restaurants) => {
     restoDescription.innerText = restaurant.description;
     restoContent.append(restoRate, restoTitle, restoDescription);
     restoContainer.append(restoContent);
-
-    const container = document.querySelector('.posts');
-    container.append(restoContainer);
   });
 };
 

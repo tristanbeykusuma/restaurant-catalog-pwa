@@ -2,6 +2,7 @@ import 'regenerator-runtime';
 import '../styles/main.scss';
 import '../styles/loading.css';
 import '../styles/responsive.scss';
+import '../styles/skeleton.scss';
 import App from './views/app';
 import './components/header-bar.js';
 import './components/hero.js';

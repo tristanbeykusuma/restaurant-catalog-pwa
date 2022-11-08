@@ -1,0 +1,19 @@
+:root {  
+    --card-padding: 24px;
+    --card-height: 340px;
+    --card-skeleton: linear-gradient(lightgrey var(--card-height), transparent 0);
+}
+
+.post-item {
+  &:empty::after {
+    content:"";
+    display:block;
+    width: 350px;
+    height: 750px;
+    border-radius:6px;
+    box-shadow: 0 10px 45px rgba(0,0,0, .1);
+     
+    background-color: lightgrey;
+    background-repeat: no-repeat;
+  }
+}
